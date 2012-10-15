@@ -1,0 +1,12 @@
+/* Admin CSS
+*/
+
+@media screen,print {
+
+tr.issuerow div.advoedit, tr.issuerow div.advoedit a { color: #bbbbbb !important; }
+tr.issuerow span.deletelink a { color: #990000; }
+tr.issuerow span.deletelink a:hover { color: #FF0000; }
+
+.omg { background: lime !important; color: lime !important; )
+
+}
