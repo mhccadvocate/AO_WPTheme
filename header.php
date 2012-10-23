@@ -4,11 +4,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 
 <head profile="http://gmpg.org/xfn/11">
-	
+
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
-	
+
 	<?php if (is_search()) { ?>
-	   <meta name="robots" content="noindex, nofollow" /> 
+	   <meta name="robots" content="noindex, nofollow" />
 	<?php } ?>
 
 	<title>
@@ -59,24 +59,24 @@
 
 	<style type="text/css">
     .topbox { background: <?php echo get_option('color1'); ?>; border-bottom: 3px solid <?php echo get_option('color2'); ?> !important; }
-    #navigation { background: url(<?php bloginfo('template_directory'); ?>/images/navbg.png) <?php echo get_option('color1'); ?> left top no-repeat; }
+    #navigation { background: url(<?php bloginfo('template_directory'); ?>/images/navbg.png) #990000 left top no-repeat; }
     a:hover, #navigation a:hover, #topslider a:hover { text-decoration: underline; color: <?php echo get_option('color2'); ?>; }
     .thumbs { background-color: white; }
     /* .widget { border-top: 1px solid <?php echo get_option('color2'); ?> !important; } */
-    hr { color: <?php echo get_option('color2'); ?> !important; background-color: <?php echo get_option('color2'); ?> !important; }
+    hr { color: #ccc !important; background-color: #ccc !important; }
     .metadate { color: <?php echo get_option('color4'); ?>; }
     div.topnav div.archivenav { border-top: 2px solid <?php echo get_option('color2'); ?>; border-bottom: 1px solid <?php echo get_option('color2'); ?>; }
     div.bottomnav div.archivenav { border-top: 1px solid <?php echo get_option('color2'); ?>; border-bottom: 2px solid <?php echo get_option('color2'); ?>; }
     .archivenav { background: <?php echo get_option('color3'); ?>; height: 15px; }
-    #slider1container { position: relative; margin-top: 5px; width: 570px; height: 248px; background: <?php echo get_option('color3'); ?> !important; /*border: 3px solid <?php echo get_option('color1'); ?> !important; border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; */ }
+    #slider1container { position: relative; padding-left: 3px; margin-top: 5px; margin-left: 10px; width: 610px; height: 248px; border-left: 20px solid #990000; /*border: 3px solid <?php echo get_option('color1'); ?> !important; border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; */ }
 
     .TabbedPanelsTab {	background-color: <?php echo get_option('color2'); ?> !important; border-left: solid 1px <?php echo get_option('color2'); ?> !important; border-bottom: solid 1px <?php echo get_option('color1'); ?> !important; border-top: solid 1px <?php echo get_option('color1'); ?> !important;	border-right: solid 1px <?php echo get_option('color1'); ?> !important; }
     .TabbedPanelsTabHover { background: <?php echo get_option('color3'); ?> !important; }
     .TabbedPanelsTabSelected { border-bottom: 1px solid <?php echo get_option('color3'); ?> !important; }
     .TabbedPanelsContentGroup, .VTabbedPanels .TabbedPanelsTabGroup, .VTabbedPanels .TabbedPanelsTabSelected, .TabbedPanelsTabSelected { background: <?php echo get_option('color3'); ?> !important; border-right-color: <?php echo get_option('color1'); ?>; border-left-color: <?php echo get_option('color2'); ?>; border-bottom-color: <?php echo get_option('color2'); ?>; border-top-color: <?php echo get_option('color1'); ?>; }
 
-    div.widget { border-right: 1px solid <?php echo get_option('color1'); ?>; border-top: 1px solid <?php echo get_option('color1'); ?>; border-bottom: 1px solid <?php echo get_option('color2'); ?>; border-left: 1px solid <?php echo get_option('color2'); ?>; border-radius: 5px 5px 0px 0px; -moz-border-radius: 5px 5px 0px 0px; }
-    div.widget h2 { padding: 5px 5px 2px 5px; ?>; /* border-right: 1px solid <?php echo get_option('color1'); ?>; border-top: 1px solid <?php echo get_option('color1'); ?>; */ border-bottom: 1px solid <?php echo get_option('color2'); ?>; /* border-left: 1px solid <?php echo get_option('color2'); ?>; border-radius: 5px 5px 0px 0px; -moz-border-radius: 5px 5px 0px 0px; */ }
+    div.widgeta { border-right: 1px solid <?php echo get_option('color1'); ?>; border-top: 1px solid <?php echo get_option('color1'); ?>; border-bottom: 1px solid <?php echo get_option('color2'); ?>; border-left: 1px solid <?php echo get_option('color2'); ?>; border-radius: 5px 5px 0px 0px; -moz-border-radius: 5px 5px 0px 0px; }
+    div.widget h2 { padding: 5px 5px 2px 5px; ?>; /* border-right: 1px solid <?php echo get_option('color1'); ?>; border-top: 1px solid <?php echo get_option('color1'); ?>;  border-bottom: 1px solid <?php echo get_option('color2'); ?>; /* border-left: 1px solid <?php echo get_option('color2'); ?>; border-radius: 5px 5px 0px 0px; -moz-border-radius: 5px 5px 0px 0px; */ }
 
     #navbar li:hover li, #navbar li.hover li {
 	float: none; border: 1px solid <?php echo get_option('color1'); ?>; }
@@ -106,7 +106,7 @@
 
 
     <script language="JavaScript" type="text/javascript" src="/wp-content/themes/BLANK-Theme/js/SpryTabbedPanels.js"></script>
-	
+
 </head>
 
 <?php
@@ -115,7 +115,7 @@ flush();
 ?>
 
 <body <?php body_class(); ?>>
-	
+
     <div id="page-wrap" class="group">
     <?php //print_r($_SESSION['issue_date']); ?>
     <?php //print_r($_SESSION['blah']); ?>
@@ -123,30 +123,39 @@ flush();
     <div id="rightborder"></div>
         <div id="header">
             <div id="dateline">
-                <?php echo date( 'l, F j, Y' ) . '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;'.'The independent student voice of Mt. Hood Community College'.'&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;'.'&copy;'.date("Y").' The Advocate Online'; ?>
+                <?php echo date( 'l, F j, Y' ) . '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;'.'The independent student voice of Mt. Hood Community College'.'&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;'.'Gresham, OR'; ?>
             </div> <!-- end dateline -->
             <div id="advoheader">
                 <a href="/"><img id="advologo" src="<?php bloginfo('template_directory'); ?>/images/advologofall13.png" alt="The Advocate"/></a>
                 <img id="advomountain" src="<?php bloginfo('template_directory'); ?>/images/advomountain.png" alt="The Advocate"/>
                 <div id="weatheru"><?php echo do_shortcode('[forecast]'); ?></div>
-                <div id="advosocial">
-                        <div class="sociallink"><a href="http://www.facebook.com/TheAdvocateOnline" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/facebook.png" alt="Like us on Facebook!" title="Like us on Facebook!" /><br />Facebook</a></div>
-                        <div class="sociallink"><a href="http://twitter.com/#!/mhccadvocate" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/twitter.png" alt="Follow us on Twitter!" title="Follow us on Twitter!" /><br />Twitter</a></div>
-                        <!--<div class="sociallink"><a href="/feed/"><img src="<?php //bloginfo('template_directory'); ?>/images/rss.png" alt="Subscribe to our RSS feed!" title="Subscribe to our RSS feed!" /><br />RSS Feed</a></div>-->
-                </div>
             </div> <!-- end advoheader -->
             <div id="navcontainer">
                 <div id="navigation">
                 <ul id="navbar">
                     <li><span><a href="/?action=home">Home</a>|</span></li>
                     <li><span><a href="/news/">News</a>|</span>
+                        <ul>
+                            <li><a href="news/newsbrief/">News Briefs</a></li>
+                        </ul>
                     </li>
                     <li><span><a href="/opinion/">Opinion</a>|</span>
+                        <ul>
+                            <li><a href="/opinion/column-opinion/">Columns</a></li>
+                            <li><a href="/opinion/editorial/">Editorials</a></li>
+                        </ul>
                     </li>
                     <li><span><a href="/living-arts/">Living Arts</a>|</span>
+                        <ul>
+                            <li><a href="living-arts/reviews/">Reviews</a></li>
+                        </ul>
                     </li>
-                    <li><span><a href="/sports/">Sports</a>|</span></li>
-                    <li><span><a href="/media/">Media</a>|</span>
+                    <li><span><a href="/sports/">Sports</a>|</span>
+                        <ul>
+                            <li><a href="/sports/column-sports/">Columns</a></li>
+                        </ul>
+                    </li>
+                    <li><span><a href="#">Media</a>|</span>
                         <ul>
                             <li><a href="/media/photos/">Photos</a></li>
                             <li><a href="/media/videos/">Videos</a></li>
@@ -156,10 +165,16 @@ flush();
                 </ul>
                 </div>
                 <div id="logofooter">
-                    <a href="/free-speech-zone/">Free Speech Zone</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="/staff/">Staff</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="/venture/">Venture</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <span class="fsz" alt="Coming Soon">Free Speech Zone</span>&nbsp;|
+                    <a href="/staff/">Staff</a>&nbsp;|
+                    <a href="/venture/">Venture</a>&nbsp;|
                     <a href="/contact/">Contact</a>
+                </div>
+                <div id="socialicons">
+                    <span class="social"><a href="http://www.facebook.com/TheAdvocateOnline" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/social/facebook.png" alt="Like us on Facebook!" title="Like us on Facebook!" /></a></span>
+                    <span class="social"><a href="http://twitter.com/mhccadvocate" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/social/twitter_alt.png" alt="Follow us on Twitter!" title="Follow us on Twitter!" /></a></span>
+                    <span class="social"><a href="http://www.youtube.com/user/MHCCAdvocate" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/social/youtube.png" alt="Subscribe to us on YouTube!" title="Subscribe to us on YouTube!" /></a></span>
+                    <span class="social"><a href="http://issuu.com/theadvocate" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/social/issuu.png" alt="Check us out on Issuu!" title="Check us out on Issuu!" /></a></span>
                 </div>
             </div>
         </div>

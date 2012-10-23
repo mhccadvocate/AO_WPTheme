@@ -22,7 +22,7 @@
                 echo '<div style="line-height:4px;">&nbsp;</div>';
             }  ?>
 
-            <?php include (TEMPLATEPATH . '/inc/homemeta.php' ); ?>
+            <?php include (TEMPLATEPATH . '/inc/storymeta.php' ); ?>
 
 			<div class="entry">
 				

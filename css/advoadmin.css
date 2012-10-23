@@ -9,4 +9,9 @@ tr.issuerow span.deletelink a:hover { color: #FF0000; }
 
 .omg { background: lime !important; color: lime !important; )
 
+body.media-new-php .image-url { display: none; }
+.max-upload-size { display: none !important; }
+
+.nav-tab { color: lime !important; }
+
 }

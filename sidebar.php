@@ -4,8 +4,8 @@
      	<?php get_search_form(); ?>
     <?php wp_reset_query();
     if ( ! is_home() ) { ?>
-    <div id="headlinewidget" class="group">
-    <div style="position: relative; left: -10px; bottom: -15px;"><h3>Recent Stories:</h3></div>
+    <div id="headlinewidget" class="group widget">
+    <h2>Recent Stories:</h2>
     <div class="TabbedPanels" id="tp1">
     <ul class="TabbedPanelsTabGroup">
         <li class="TabbedPanelsTab" tabindex="0">News</li>
@@ -26,7 +26,7 @@
                     <?php the_title() ?>
                  </a></span>
                  <br />
-                 <span class="font-size: 9px"><em>&nbsp;<?php wp_days_ago(); ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></em></span>
+                 <span class="font-size: 9px"><em>&nbsp;<?php wp_days_ago_ajax(); ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></em></span>
                </div>
             <?php endforeach; ?>
             <a href="/news/"><span style="float:right;">More in News...</span></a>
@@ -44,7 +44,7 @@
                     <?php the_title() ?>
                  </a></span>
                  <br />
-                 <span class="font-size: 9px"><em>&nbsp;<?php wp_days_ago(); ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></em></span>
+                 <span class="font-size: 9px"><em>&nbsp;<?php wp_days_ago_ajax(); ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></em></span>
                </div>
             <?php endforeach; ?>
             <a href="/opinion/"><span style="float:right;">More in Opinion...</span></a>
@@ -61,7 +61,7 @@
                     <?php the_title() ?>
                  </a></span>
                  <br />
-                 <span class="font-size: 9px"><em>&nbsp;<?php wp_days_ago(); ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></em></span>
+                 <span class="font-size: 9px"><em>&nbsp;<?php wp_days_ago_ajax(); ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></em></span>
                </div>
             <?php endforeach; ?>
             <a href="/living-arts/"><span style="float:right;">More in Living Arts...</span></a>
@@ -79,7 +79,7 @@
                     <?php the_title() ?>
                  </a></span>
                  <br />
-                 <span class="font-size: 9px"><em>&nbsp;<?php wp_days_ago(); ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></em></span>
+                 <span class="font-size: 9px"><em>&nbsp;<?php wp_days_ago_ajax(); ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></em></span>
                </div>
             <?php endforeach; ?>
             <a href="/sports/"><span style="float:right;">More in Sports...</span></a>
@@ -89,28 +89,6 @@
     </div>
     </div>
     <?php } ?>
-    
-    <div id="rec-comments" class="widget">
-    <h2>Recent Comments</h2>
-                 <ul style="width:95%;position:relative;left:0px;list-style-position:inside;">
- <?php
-            $args = array( 'number' => 5, 'status' => 'approve', 'order'=> 'DESC', 'orderby' => 'date' );
-            $commentslist = get_comments( $args );
-            foreach ($commentslist as $comm) : ?>
-                <li style="overflow:hidden;whitespace:nowrap;text-overflow:ellipsis;"><span style="font-size:10px;">
-                  <?php echo($comm->comment_author);?> on <a href="<?php echo get_permalink($comm->comment_post_ID); ?>"><?php echo get_the_title($comm->comment_post_ID); ?></a>
-                 </span>
-                 <br />
-                 <span style="font-size:10px;"><em>
-                  "<?php echo($comm->comment_content);?>"
-                 </em></span>
-
-            <?php endforeach; ?>
-            </ul>
-            <a href="/comments/"><span style="float:right;">More comments...</span></a>
-            <div class="group"></div>
-    </ul></div><!--end rec-comments-->
-    
 
      	
     <?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar Widgets')) : else : ?>

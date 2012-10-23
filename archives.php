@@ -183,7 +183,13 @@ case 'gotoarchive':
 //	wp_redirect( $location );
 //	exit;
     ?>
-    <?php echo get_num_queries(); ?> queries in <?php timer_stop(1); ?> seconds.
+    <?php // echo get_num_queries(); ?> queries in <?php timer_stop(1); ?> seconds.
+    
+            </div> <!-- end maincontent -->
+
+<?php get_sidebar(); ?>
+
+<?php get_footer(); ?>
     <?php
 
 break;
@@ -195,7 +201,7 @@ default:
 
         <div id="maincontent" class="group">
 
-        <h1>Archives</h1><br />
+        <h1>Archives</h1>
 
  	<?php if (have_posts()) : ?>
 
@@ -208,39 +214,77 @@ default:
     // echo '<h2>Archive</h2><br />';
     // echo '<span>This is <strong>placeholder</strong> page while I fix the queries.<span><br />';
     // echo '<a href="?action=endsession">Destroy session</a>';
-    echo '<br />';
     echo '<div id="archivestories">'; ?>
-    <hr />
+    <hr /><br />
     <?php
 
-        $volume = (int) get_option( 'cur_volume' );
+        $volume = 48;
         $archiveselects = $wpdb->get_results( $wpdb->prepare(
         "
         SELECT advocate_id, issue, issue_date
         From wp_advocate
         WHERE volume = %d
         AND issue > '0'
+        ORDER BY issue_date DESC
         ",
         $volume
         ));
+        echo '<h3>Volume 48</h3>';
         echo '<table>';
+        echo '<tr><td>';
+        echo '<b>Issue #</b>';
+        echo '</td><td>';
+        echo '<b>Issue Date</b>';
+        echo '</td></tr>';
 //        print_r($archiveselects);
         foreach( $archiveselects as $archiveselect ) {
             $issdate = strtotime($archiveselect->issue_date);
             $issdate = date("F j, Y", $issdate);
 
-            echo '<tr><td>';
-            echo '<a href="?action=gotoarchive&id=' . $archiveselect->advocate_id . '">Issue' . $archiveselect->issue . '</a>';
+            echo '<tr><td style="width:60px">';
+            echo '<a href="?action=gotoarchive&id=' . $archiveselect->advocate_id . '">' . $archiveselect->issue . '</a>';
             echo '</td><td>';
-            echo $issdate;
+            echo '<a href="?action=gotoarchive&id=' . $archiveselect->advocate_id . '">' . $issdate . '</a>';
             echo '</td></tr>';
         }
         echo '</table>';
 
+    echo '<br /><hr /><br />';
+    
+        $volume = 47;
+        $archiveselects = $wpdb->get_results( $wpdb->prepare(
+        "
+        SELECT advocate_id, issue, issue_date
+        From wp_advocate
+        WHERE volume = %d
+        AND issue > '0'
+        ORDER BY issue_date DESC
+        ",
+        $volume
+        ));
+        echo '<h3>Volume 47</h3>';
+        echo '<table>';
+        echo '<tr><td>';
+        echo '<b>Issue #</b>';
+        echo '</td><td>';
+        echo '<b>Issue Date</b>';
+        echo '</td></tr>';
+//        print_r($archiveselects);
+        foreach( $archiveselects as $archiveselect ) {
+            $issdate = strtotime($archiveselect->issue_date);
+            $issdate = date("F j, Y", $issdate);
 
+            echo '<tr><td style="width:60px">';
+            echo '<a href="?action=gotoarchive&id=' . $archiveselect->advocate_id . '">' . $archiveselect->issue . '</a>';
+            echo '</td><td>';
+            echo '<a href="?action=gotoarchive&id=' . $archiveselect->advocate_id . '">' . $issdate . '</a>';
+            echo '</td></tr>';
+        }
+        echo '</table>';
 
+    echo '<br /><hr /><br />';
 
-    echo '<hr />';
+    echo 'For issues older than September 2011, <a href="http://archives.advocate-online.net/2009_newdesign/archives_all.php">please visit our old website</a>.';
 
     echo '</div><!-- End archivestories div -->';
 
@@ -260,8 +304,6 @@ default:
 
 
 	<?php wp_reset_query(); ?>
-
-    <?php echo get_num_queries(); ?> queries in <?php timer_stop(1); ?> seconds.
 
         </div> <!-- end maincontent -->
 

@@ -598,7 +598,7 @@ function edit_advocate_row($item)
 
 
 	// Get all theme REPORTER taxonomy terms
-	$reporters = get_terms('reporter', 'parent=35&hide_empty=0');     // GET ONLY REPORTERS OF THE CURRENT YEAR (look up id, 2011-2012 is 23)
+	$reporters = get_terms('reporter', 'hide_empty=0');     // GET ONLY REPORTERS OF THE CURRENT YEAR (look up id, 2011-2012 is 23)
     ?>
     Author: <select name='post_reporter' id='post_reporter' style="width:220px">
 	<!-- Display reporters as options -->
@@ -962,7 +962,7 @@ function ms_attachment_fields_to_edit($form_fields, $post) {
 	// align: (radio)
 	//$form_fields['align']['value'] = 'aligncenter';
 	//$form_fields['align']['input'] = 'hidden';
-	$form_fields['align']['html'] = myimage_align_input_fields($post, get_option('image_default_align'));
+	//$form_fields['align']['html'] = myimage_align_input_fields($post, get_option('image_default_align'));
 
     $form_fields['image-size'] = myimage_size_input_fields( $post, get_option('image_default_size', 'medium') );
 
@@ -1005,7 +1005,7 @@ function myimage_align_input_fields( $post, $checked = '' ) {
 function myimage_size_input_fields( $post, $check = '' ) {
 
 		// get a list of the actual pixel dimensions of each possible intermediate version of this image
-		$size_names = apply_filters( 'image_size_names_choose', array('storylandscape' => __('Full Story Width'), 'storyinset' => __('Story Inset'), 'full' => __('Full Size')) );
+		$size_names = apply_filters( 'image_size_names_choose', array('storylandscape' => __('Story Top (full width)'), 'storyinset' => __('Story Inset (text wrap)'), 'full' => __('Full Size')) );
 
 		if ( empty($check) )
 			$check = get_user_setting('imgsize', 'medium');
@@ -1063,6 +1063,17 @@ add_filter('attachment_fields_to_edit', 'ms_attachment_fields_to_edit', 11, 2);
         $_SESSION['blah'] = $where;
         return $where;
     }
+
+
+
+    // Hide users in userlist that were added by SOCIAL (comments plugin)
+    add_action('pre_user_query','yoursite_pre_user_query');
+    function yoursite_pre_user_query($user_search) {
+        global $wpdb;
+        $user_search->query_where = str_replace('WHERE 1=1',
+        "WHERE 1=1 AND {$wpdb->users}.user_login NOT LIKE '%twitter%' AND {$wpdb->users}.user_login NOT LIKE '%facebook%'",$user_search->query_where);
+    }
+
 
 
 ?>

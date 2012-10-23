@@ -71,7 +71,7 @@
             <?php } ?>
 
 			<div class="excerpt-entry">
-                <?php the_advanced_excerpt('length=40&exclude_tags=img,&finish_sentence=1&ellipsis=%26nbsp;%26nbsp;%26#187;'); ?>
+                <?php the_advanced_excerpt('length=40&exclude_tags=img,p&no_custom=1&finish_sentence=1&ellipsis=%26nbsp;%26nbsp;%26#187;'); ?>
 			</div>
             </div><hr />
 
@@ -87,8 +87,6 @@
 		<h2>Nothing found</h2>
 
 	<?php endif; ?>
-
-    <?php echo get_num_queries(); ?> queries in <?php timer_stop(1); ?> seconds.
 
               </div> <!--end maincontent-->
 

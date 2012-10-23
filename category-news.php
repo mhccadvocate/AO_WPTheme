@@ -17,10 +17,10 @@
 
 
             // Filter the query for the date range
-            add_filter( 'posts_where', 'filter_where' );
+            //add_filter( 'posts_where', 'filter_where' );
             //print_r( $cat );
             $new_query = new WP_Query( array( 'cat' => $cat, 'paged' => $paged ) );
-            remove_filter( 'posts_where', 'filter_where' );
+            //remove_filter( 'posts_where', 'filter_where' );
 ?>
 
 
@@ -60,18 +60,18 @@
                 the_subtitle();
                 echo '</a><div style="line-height:4px;">&nbsp;</div>';
             }  ?>
-
-            <?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
-
             <div class="post-thumb">
                 <a href="<?php the_permalink(); ?>">
                     <?php the_post_thumbnail('thumbnail'); ?>
 
                 </a>
             </div>
+            <?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
+
+
 
 			<div class="excerpt-entry">
-                <?php the_advanced_excerpt('length=40&exclude_tags=img,&finish_sentence=1&ellipsis=%26nbsp;%26nbsp;%26#187;'); ?>
+                <?php the_advanced_excerpt('length=40&exclude_tags=img,p&finish_sentence=1&ellipsis=%26nbsp;%26nbsp;%26#187;'); ?>
 			</div>
             </div><hr />
 
@@ -116,7 +116,7 @@
             <?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
 
 			<div class="excerpt-entry">
-                <?php the_advanced_excerpt('length=40&exclude_tags=img,&finish_sentence=1&ellipsis=%26nbsp;%26nbsp;%26#187;'); ?>
+                <?php the_advanced_excerpt('length=40&exclude_tags=img,p&finish_sentence=1&ellipsis=%26nbsp;%26nbsp;%26#187;'); ?>
 			</div>
             </div><hr />
 
@@ -133,8 +133,6 @@
 		<h2>Nothing found</h2>
 
 	<?php endif; ?>
-
-    <?php echo get_num_queries(); ?> queries in <?php timer_stop(1); ?> seconds.
     
               </div> <!--end maincontent-->
 

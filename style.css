@@ -2,19 +2,22 @@
 Theme Name: Advocate Theme
 Theme URI: http://advocate-online.net
 Description: This is just a BLANK starter WordPress Theme template -- WordPress v2.9.1
-Author: 
-Author URI: 
+Author:
+Author URI:
 Version: 1
 */
 
-@media screen,print {
+@media screen {
 
 * { margin: 0; padding: 0; }
 html { background: #ddd; }
 body { font: 11px Verdana, sans-serif; }
 
-h1, h2, h3 { font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; font-size: 200%;}
+h1, h2, h3 { font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; }
+h2 { font-size: 170%; }
+h3 { font-size: 150%; }
 h2, h3 { letter-spacing: 0px; }
+h2 a:link, h2 a:active, h2 a:visited { color: #990000; }
 
 
 hr { border: none; height: 1px; }
@@ -43,27 +46,36 @@ a img { text-decoration: none; border: none }
 
 h4 { font-style: oblique; }
 
+.alignright { position: relative; right: 15px; }
+.advoprint { background: url(images/printsmall.png) no-repeat top left scroll transparent; padding-left:20px;padding-right:3px;white-space:nowrap;font-family:Verdana,Helvetica,sans-serif;font-size:11px;display:inline-block;height:16px;line-height:16px}
+.advoprint:hover {opacity:.75;-ms-filter:"alpha(opacity=75)";filter:alpha(opacity=75);text-decoration:none;}
+
 a:link, a:active, a:visited { text-decoration: none; color: #000066; }
 #topslider a:link, #topslider a:active, #topslider a:visited { color: white; }
 /* #slider .topbox a:hover { color: black !important; } */
 .topbox a:hover { color: red; }
 
+.sharingiscaring { float: right; clear: both; }
+
+.social { }
+#socialicons { position: absolute; right: 5px; top: 0px; }
+
 /* COLUMNS */
 #page-wrap { position: relative; width: 1000px; margin: 0 auto; background: #fff; height: auto; border-bottom: 1px solid black; }
 #maincontent { float: left; width: 665px; padding: 10px 15px 15px 15px; min-height: 500px; overflow: hidden; }
 #sidebar { float: right; width: 305px; height: 100%; }
-#sidebarnosearch { /*background: #eeeeee; */ margin-top: 10px; height: inherit; border-left: 1px dashed #999; border-bottom: 1px dashed #999; /* border-top: 1px solid #999999; */ }
+#sidebarnosearch { /*background: #eeeeee; */ margin-top: 0px; padding-top: 5px; padding-bottom: 5px; height: inherit; background-color: #ddd; /*border-left: 1px dashed #999; border-bottom: 1px dashed #999; /* border-top: 1px solid #999999; */ }
 
-.widget { /* background: #DDDDDD; */ border: none;  margin: 30px 20px 15px 35px; overflow: hidden; padding:0; }
-#sidebarnosearch div.widget:first-of-type { margin-top: 20px; }
+.widget { /* background: #DDDDDD; */ border: none;  margin: 0px 20px 15px 35px; overflow: hidden; padding:0; /*border-top: 1px solid #999*/}
+#sidebarnosearch div.widget:first-of-type { margin-top: 0px; }
 div.widget #youtube { width:350px; height:210px; overflow: hidden; }
 .widget ul { position: relative; left: 15px; }
-.widget h2 { font-size: 150%; margin: 0 0 0px; }
-#headlinewidget { margin-left: 15px }
+.widget h2 { font-size: 150%; margin: 0 0 0px; color: #990000;}
+#headlinewidget { margin-left: 15px; margin-bottom: 20px; }
 /* div.widget h2 { padding: 5px 5px 2px 5px; background: #D6EAC9; border-right: 2px solid #5BAB28; border-top: 2px solid #5BAB28; border-bottom: 2px solid #ADD594; border-left: 2px solid #ADD594; border-radius: 5px 5px 0px 0px; -moz-border-radius: 5px 5px 0px 0px; }*/
 div.widget div { margin: 0 auto; }
 div.widget * { margin: 0 auto; }
-div#rec-comments {padding: 0px 5px !important; position: relative;white-space:nowrap;}
+div#rec-comments {padding: 0px 0px !important; position: relative;white-space:nowrap;}
 .widget_recent_comments { min-height: 80px; }
 #recentcomments { margin-right: 10px; padding: 5px; }
 .fszpolls div { margin-bottom: 10px; margin-left: 15px; }
@@ -85,13 +97,13 @@ div#rec-comments {padding: 0px 5px !important; position: relative;white-space:no
 #topbox3 { left: 660px; }
 
 /* Mt Hood Community College --------- Gresham, OR */
-#dateline { position: relative; left: 16px; height: 16px; width: 968px; text-align: center; color: #666666; border-bottom: 5px solid #990000; margin-bottom: 12px; padding-top: 2px; }
+#dateline { position: relative; left: 16px; height: 16px; width: 968px; text-align: center; color: #666666; border-bottom: 4px solid #990000; margin-bottom: 12px; padding-top: 2px; }
 #dateline a:link, #dateline a:active, #dateline a:visited { color: #666666; }
 /* #datelineleft { position: absolute; left: 25px; top: 4px; width: 170px; } */
 /* #datelinemid { position: absolute; left: 212px; top: 11px; width: 630px; height: 1px; background: black; } */ /* Line across the top */
 /* #datelineright { position: absolute; left: 825px; top: 4px; width: 170px; } */
 
-#advoheader { position: relative; left: 15px; height: 114px; width: 970px; border-bottom: 5px solid #990000; }
+#advoheader { position: relative; left: 15px; height: 114px; width: 970px; border-bottom: 4px solid #990000; }
 #logobox { position: absolute; left: 0px; width: 700px; height: 70px; }
 #advologo { position: absolute; left: 1px; top: -3px; width: 482px; }
 #advomountain { position: absolute; left: 483px; top: -3px; width: 487px;}
@@ -100,23 +112,25 @@ div#rec-comments {padding: 0px 5px !important; position: relative;white-space:no
 #advodate { position: absolute; right: 35px; bottom: 5px; }
 
 /* Weather display in header */
-#weatheru { position: absolute; right: 130px; width: 210px; top: 12px; z-index: 999; }
+#weatheru { position: absolute; right: 0px; width: 160px; top: -7px; z-index: 999; }
 #weatheru a:link, #weatheru a:active, #weatheru a:visited { text-decoration: none; color: #666666; }
 #weatheru a:hover { text-decoration: underline; color: #666666; }
-.wp_wund_conditions { position: relative; display: none; float: left; top: 3px; left: 15px; line-height: 20px; color: #666666; }
+.wp_wund_conditions { position: relative; float: left; width: 98px; top: 3px; left: 12px; line-height: 20px; color: #666666; }
 table.css_table_class th { padding: 10px; border: 1px solid grey; }
 table.css_table_class caption { padding: 10px; font-size: 14px; font-weight: bold; }
 table.css_table_class td { padding: 10px; border: 1px solid grey; }
 
-#advosocial { font-size: 9px; position:absolute; top:0px; right:0px; color: #333333;}
-#advosocial img { height: 30px; }
-.sociallink { width:50px; text-align: center; float: left; }
+/*#advosocial { font-size: 9px; position:absolute; top:0px; right:0px; color: #333333; display: none; }*/
+/*#advosocial img { height: 30px; }*/
+/*.sociallink { width:50px; text-align: center; float: left; }*/
+
 #navcontainer { position: relative; margin: 2px auto 0; width: 970px; height: 29px; }
 #navigation a:link, #navigation a:active, #navigation a:visited { color: white; }
 /* #navigation a:hover { color: #333333; } */
 #navigation { position: absolute; left: 0px; padding: 3px 5px 5px 5px; width: 540px; height: 17px; /* background: red; border-bottom-left-radius: 80px 30px; border-bottom-right-radius: 80px 30px;*/ color: white; font-size: 13px; }
-#logofooter { position: absolute; text-align: left; left: 550px; padding: 3px 5px 5px 5px; width: 430px; height: 17px; /* background: red; border-bottom-left-radius: 80px 30px; border-bottom-right-radius: 80px 30px;*/ color: black; font-size: 13px; }
+#logofooter { position: absolute; text-align: left; left: 530px; padding: 3px 0px 5px 5px; width: 430px; height: 17px; /* background: red; border-bottom-left-radius: 80px 30px; border-bottom-right-radius: 80px 30px;*/ color: black; font-size: 13px; }
 
+.fsz, .fsz a { color: #cccccc; }
 
 #navbar {
 	margin: 0;
@@ -165,10 +179,10 @@ table.css_table_class td { padding: 10px; border: 1px solid grey; }
 /*.slidercol { float: left; width: 100%; }
 .sliderwrap { float: left; width: 50%; position: relative; padding-bottom: 1em; } */
 #sliderwrap { float: left; position: relative; overflow: hidden; }
-#slider1 { float: left; width: 470px; position: relative; }
+#slider1 { float: left; width: 510px; position: relative; }
 #slider1 h2 { /*font-family: Verdana, sans-serif;*/ font-size: 18px; }
-#slider1 img { position: relative; width: 460px; }
-#slider1 div.caption { position: absolute; width: 452px; bottom: 0px; padding-left: 8px; padding-top: 5px; padding-bottom: 8px; color: white; background-color: rgba(0, 0, 0, 0.6); }
+#slider1 img { position: relative; width: 500px; }
+#slider1 div.caption { position: absolute; width: 492px; bottom: 0px; padding-left: 8px; padding-top: 5px; padding-bottom: 8px; color: white; background-color: rgba(0, 0, 0, 0.6); }
 #slider1 div.caption a { color:white; }
 #slider1 div.caption span { font-size: 11px; line-height: 22px; }
 /* #slider1 div.sliderexcerpt { position: absolute; width: 450px; bottom: 0px; margin-left: 8px; margin-right:40px; 10px; margin-bottom: 5px; overflow:hidden; text-overflow:ellipsis;} */
@@ -176,7 +190,8 @@ table.css_table_class td { padding: 10px; border: 1px solid grey; }
 /* #slider1 div.excerpt-entry br { display: none; } */
 
 .excerpt-entry br { display: none; }
-.excerpt-entry br { display: block !important; }
+.meta br { display: block !important; }
+/*.excerpt-entry br { display: block !important; }*/
 
 .sliderarrow { float: left; position: relative; }
 .sliderarrow img { display: block; }
@@ -192,7 +207,7 @@ table.css_table_class td { padding: 10px; border: 1px solid grey; }
 /* .thumbs a.pager-active img { border: 2px solid black; } DEFINED IN HEADER TO USE THEME COLOR */
 
 /* Class applied to each slide, set background, dimensions, and padding */
-.slides { width: 460px; height: 248px; /* padding: 0px 5px 10px 5px; */ }
+.slides { width: 500px; height: 248px; /* padding: 0px 5px 10px 5px; */ }
 
 .meta { font: 10px Verdana, sans-serif; margin: 0 0 10px; line-height: 16px; }
 .entry { margin: 10px 0 0; }
@@ -230,7 +245,7 @@ img.reporter { float: left; width: 50px; margin-right: 15px; margin-bottom: 15px
 
 
 /* Format story thumbnail images in all pages */
-.post-thumb { float: right; margin: 5px 0px 10px 10px; }
+.post-thumb { float: left; margin: 3px 10px 10px 0px; }
 
 /* Format captions and credit for images in stories */
 .media-credit { text-align: right; margin: 0 10px 5px; font: 9px Verdana, sans-serif; font-style: italic; color: #000000; }
@@ -251,17 +266,19 @@ ul.children { margin: 0 0 0 18px; }
 #copyright { float: right; width: 49%; text-align: right; }
 
 /* Misc CSS for inserting images in stories */
-img.alignright {float:right; margin:0 0 1em 1em;}
-img.alignleft {float:left; margin:0 1em 1em 0}
+img.size-storylandscape { padding-right: 5px; border-right: 75px solid #dddddd; }
+img.alignright {float:right; margin:0 0 1em 3em;}
+img.alignleft {float:left; margin:0 3em 1em 0}
 img.aligncenter {display: block; margin-left: auto; margin-right: auto}
 .alignright {float:right; clear:both; }
 .alignleft {float:left; }
 .aligncenter {display: block; margin-left: auto; margin-right: auto}
 .wp-caption.alignnone { padding: 0 0 20px; }
 
+body.media-new-php .image-url { display: none; }
+span.max-upload-size { display: none; }
 
-
-
+#rec-comments img.avatar { float: left; margin-right: 5px; }
 
 /* COMMENTS */
 ol.commentlist { list-style: none; }
@@ -310,3 +327,36 @@ input[type=text] { }
 textarea {
 
 } /* END screen media */
+
+
+@media print {
+
+* { margin: 0; padding: 0; }
+body { font: 11px Verdana, sans-serif; }
+
+h1, h2, h3 { font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; }
+h2 { font-size: 170%; }
+h3 { font-size: 150%; }
+h2, h3 { letter-spacing: 0px; }
+
+body.single .entry { margin-top: 25px; margin-bottom: 25px; }
+body.single .entry p { margin: 0 15px 10px 15px; }
+body.single h3 { margin-left: 15px; margin-bottom: 5px; }
+body.single div.meta h3 { margin-left: 0px; margin-bottom: 5px; }
+
+/* Misc Readability - line-height and whitespace */
+div.entry p { margin: 0 0 10px; line-height: 18px;  }
+
+a img { text-decoration: none; border: none }
+
+h4 { font-style: oblique; }
+
+#header { display: none; }
+#sidebar { display: none; }
+#footer { display: none; }
+#social { display: none; }
+br, hr { display: none; }
+.sharingiscaring { display: none; }
+a:link, a:visited, a:hover, a:active { text-decoration: none; }
+
+} /* END screen print */

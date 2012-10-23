@@ -44,10 +44,6 @@ Template Name: Videos
               FROM $wpdb->posts
               WHERE
                   post_status = 'publish'
-            	AND
-                  post_date >= '2012-04-06'
-                AND
-                  post_date < '2012-04-13'
                 AND
                   ID IN (
             	SELECT DISTINCT post_parent

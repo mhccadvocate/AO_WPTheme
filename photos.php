@@ -7,24 +7,31 @@ Template Name: Photos
 <?php get_header(); ?>
 		<?php if (have_posts()) : ?>
 
- 			<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
+ 			<?php // $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
 
  			<div id="maincontent">
                 <?php // Breadcrumbs and Page Header ?>
                 <h1 class="pagetitle">Photos</h1>
 
 
-            <?php // Set pagination to work with the date range filter
+
+
+            <?php // THE QUERY!!!
+
+            //while ($wp_query->have_posts()){
+            //$wp_query->the_post();
 
             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
-
-
-            // Filter the query for the date range
-            // add_filter( 'posts_where', 'filter_where' );
-            // $wp_query = new WP_Query( array( 'paged' => $paged ) );
-            // remove_filter( 'posts_where', 'filter_where' );
-?>
+            
+            $args = array(
+                'paged' => $paged,
+                'meta_query' => array(
+                    array(
+                        'key' => '_thumbnail_id',
+                    )
+                )
+             );
+            $new_query = new WP_Query( $args );   ?>
 
             <div class="topnav">
 			<?php include (TEMPLATEPATH . '/inc/nav.php' ); ?>
@@ -32,41 +39,8 @@ Template Name: Photos
 
             <hr />
 
-            <?php // THE QUERY!!!
-
-            //while ($wp_query->have_posts()){
-            //$wp_query->the_post();
-
-            global $wpdb;
-            $posts = $wpdb->get_results
-            ("
-              SELECT *
-              FROM $wpdb->posts
-              WHERE
-                  post_status = 'publish'
-            	AND
-                  post_date >= '2012-05-11'
-                AND
-                  post_date < '2012-05-19'
-                AND
-                  ID IN (
-            	SELECT DISTINCT post_parent
-            	FROM $wpdb->posts
-            	WHERE
-            	  post_parent > 0
-            	AND
-            	  post_type = 'attachment'
-            	AND
-            	  post_mime_type IN ('image/jpeg', 'image/png')
-                  )
-                ORDER BY post_date DESC
-            ");
-
-
-
-            foreach($posts as $post) :
-              setup_postdata($post);
-            ?>
+            <?php while ($new_query->have_posts()){
+            $new_query->the_post(); ?>
 
             <?php if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it. ?>
 
@@ -100,10 +74,8 @@ Template Name: Photos
             </div><hr />
 
             <?php } ?>
-        <?php // } /* END WHILE */ ?>
-        <?php endforeach; ?>
-        <?php // wp_reset_postdata(); ?>
-        <?php wp_reset_query(); ?>
+        <?php } /* END WHILE */ ?>
+        <?php wp_reset_postdata(); ?>
 
             <div class="bottomnav">
 			<?php include (TEMPLATEPATH . '/inc/nav.php' ); ?>
@@ -114,15 +86,6 @@ Template Name: Photos
 		<h2>Nothing found</h2>
 
 	<?php endif; ?>
-
-        <?php // Filters posts in the issue's date range
-        // function filter_where( $where = '' ) {
-	       //$currentissue = 'issue-20';
-	       //$issuestart = xydac_cloud('volume','issue-20','issue-start');
-	       //$issueend = xydac_cloud('volume','issue-20','issue-end');
-	       //$where .= " AND post_date >= '$issuestart' AND post_date < '$issueend'";
-	       //return $where;
-        //} ?>
 
               </div> <!--end maincontent-->
 

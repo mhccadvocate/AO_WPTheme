@@ -76,6 +76,7 @@ $(window).load(function($){
     $new_query = new WP_Query( array( 'posts_per_page' => 1, 'featured' => $featured ) );
     //remove_filter( 'posts_where', 'filter_where' );
 
+
     // echo '<span style="z-index:2000;">'.$query_string.'</span>';
 
     while ($new_query->have_posts()){
@@ -88,7 +89,7 @@ $(window).load(function($){
 
             if ( has_post_thumbnail() ) {
                 echo '<div class="slider-post-thumb"><a href="'.get_permalink().'">';
-                the_post_thumbnail('oldslider');
+                the_post_thumbnail('newslider');
                 echo '</a></div>';
             }
             echo '<div class="caption">';
@@ -99,9 +100,9 @@ $(window).load(function($){
             echo '<h2><a href="'.get_permalink().'">';
             the_title();
             echo '</a></h2>';
-            //echo '<div class="excerpt-entry">';
-            //the_advanced_excerpt('length=10&exclude_tags=img&finish_sentence=0&ellipsis=%26nbsp;%26nbsp;%26#187;');
-            //echo '</div>';
+            echo '<div class="excerpt-entry">';
+            the_advanced_excerpt('length=20&exclude_tags=img,p&finish_sentence=0&ellipsis=%26#8230;%26nbsp;%26nbsp;%26#187;');
+            echo '</div>';
             echo '</div>';
             ?>
 
@@ -169,9 +170,9 @@ $(window).load(function($){
     <hr />
     <?php
 
-    add_filter( 'posts_where', 'filter_where' );
+    //add_filter( 'posts_where', 'filter_where' );
     $new_query = new WP_Query( $args );;
-    remove_filter( 'posts_where', 'filter_where' );
+    //remove_filter( 'posts_where', 'filter_where' );
 //print_r($new_query);
   //  print_r($new_query);
 
@@ -220,7 +221,7 @@ $(window).load(function($){
 
             //echo '<br />';
             echo '<div style="line-height:4px;">&nbsp;</div>';
-            
+
             //echo '<span>';
             //the_terms( $post->ID, 'category', '', ' <span style="color:#000">/</span>', ' &#187;' );
             //$cat = get_the_category(); $cat = $cat[0];
@@ -258,10 +259,8 @@ $(window).load(function($){
 
 	<?php wp_reset_query(); ?>
 
-
-    <?php echo get_num_queries(); ?> queries in <?php timer_stop(1); ?> seconds.
         </div> <!-- end maincontent -->
-	
+
 <?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

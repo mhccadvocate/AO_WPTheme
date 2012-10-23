@@ -20,7 +20,7 @@
 
 				<div class="entry">
 
-					<?php the_excerpt(); ?>
+                <?php the_advanced_excerpt('length=40&exclude_tags=img,p&finish_sentence=1&ellipsis=%26nbsp;%26nbsp;%26#187;'); ?>
 
 				</div>
 

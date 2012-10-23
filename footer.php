@@ -1,5 +1,5 @@
 		<div id="footer" class="group" >
-			<span id="copyright"></span>
+			<span id="copyright"><?php echo '&copy;'.date("Y").' The Advocate Online'?></span>
 		</div>
 		
 <?php //CHECK QUERYS AND QUERY TIMES
@@ -16,6 +16,21 @@
 	<?php wp_footer(); ?>
 	
 	<!-- Don't forget analytics -->
+<script language="JavaScript" type="text/javascript">
+function printClick() {
+	if (!document.getElementById) return false;
+	if (!document.getElementById("print_this")) return false;
+
+	var link = document.getElementById("print_this");
+	link.onclick = function() {
+		window.print();
+		return false;
+	}
+	link.onkeypress = link.onclick;
+}
+
+printClick();
+</script>
 
 <script language="JavaScript" type="text/javascript">
 var tp1 = new Spry.Widget.TabbedPanels("tp1");

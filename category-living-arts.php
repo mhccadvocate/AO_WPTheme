@@ -59,9 +59,7 @@
                 the_subtitle();
                 echo '</a><div style="line-height:4px;">&nbsp;</div>';
             }  ?>
-
-            <?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
-
+            
             <div class="post-thumb">
                 <a href="<?php the_permalink(); ?>">
                     <?php the_post_thumbnail('thumbnail'); ?>
@@ -69,8 +67,10 @@
                 </a>
             </div>
 
+            <?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
+
 			<div class="excerpt-entry">
-                <?php the_advanced_excerpt('length=40&exclude_tags=img,&finish_sentence=1&ellipsis=%26nbsp;%26nbsp;%26#187;'); ?>
+                <?php the_advanced_excerpt('length=30&exclude_tags=img,p&no_custom=1&finish_sentence=1&ellipsis=%26nbsp;%26nbsp;%26#187;'); ?>
 			</div>
             </div><hr />
 
@@ -109,7 +109,7 @@
             <?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
 
 			<div class="excerpt-entry">
-                <?php the_advanced_excerpt('length=40&exclude_tags=img,&finish_sentence=1&ellipsis=%26nbsp;%26nbsp;%26#187;'); ?>
+                <?php the_advanced_excerpt('length=40&exclude_tags=img,p&finish_sentence=1&ellipsis=%26nbsp;%26nbsp;%26#187;'); ?>
 			</div>
             </div><hr />
             
